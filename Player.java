@@ -13,7 +13,7 @@ public class Player extends Entity{
     public Player() {
         super("Gracz", 100, 5);
         this.inventory = new Inventory();
-        this.gold = 5;
+        this.gold = 10;
         this.armor = new Armor("Potargane Łachmany", 0);
         this.weapon = new Weapon("Patyk", 0);
     }
