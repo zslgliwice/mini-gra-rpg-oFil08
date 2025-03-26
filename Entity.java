@@ -13,27 +13,46 @@ public class Entity {
         this.attackPower = attackPower;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getMaxHp(){
+        return maxHp;
+    }
+
     public void printStats(){
-        if(name.equals("Gracz")) System.out.println("Twoje statystyki: HP = " + hp + " | atak = " + attackPower);
-        else System.out.println(name + ": HP = " + hp + " | atak = " + attackPower);
+        System.out.println(name + ": HP = " + hp + " | atak = " + attackPower);
     }
 
     public void removeHp(int hpToRemove){
         this.hp -= hpToRemove;
+
+        System.out.println("Zadales " + hpToRemove + " obrazen!");
     }
 
     public void addHp(int hpToAdd){
         this.hp += hpToAdd;
+
+        System.out.println(this.name + "uleczyl " + hpToAdd + " obrazen!");
     }
 
-    public void attack(Entity entity){
+    public boolean attack(Entity entity){
         int attackHalved = attackPower/2;
         Random r = new Random();
+
         int hit = r.nextInt(attackPower + 1) + attackHalved;
         entity.removeHp(hit);
-        
-        if(name.equals("Gracz")) System.out.println("Zadałeś " + hit + " obrażeń");
-        else System.out.println(name + " zadał " + hit + " obrażeń");
+
+        if(entity.getHp() <= 0){
+            return true;
+        }
+
         entity.printStats();
+        return false;
     }
 }
