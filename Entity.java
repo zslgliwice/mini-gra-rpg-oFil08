@@ -49,7 +49,7 @@ public class Entity {
         int attackHalved = attackPower/2;
         Random r = new Random();
 
-        int hit = r.nextInt(attackPower + 1) + attackHalved;
+        int hit = r.nextInt(attackHalved + 1) + attackHalved;
         entity.removeHp(hit);
 
         if(entity.getHp() <= 0){

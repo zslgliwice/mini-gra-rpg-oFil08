@@ -20,25 +20,39 @@ public class Inventory {
 
     public void printInventory(boolean showFreeSlots){
         printInventory();
-        if(showFreeSlots) System.out.println("Zajęte jest: " + items.size() + "/10 miejsc w ekwipunku");
+        if(showFreeSlots) System.out.println("Zajete jest: " + items.size() + "/10 miejsc w ekwipunku");
     }
 
-    public void printConsumables(){
-        int i = 1;
+    public int countConsumables(){
+        int i = 0;
         for(Item item : items){
             if(item instanceof Medicine){
+                i++;
+            }
+        }
+
+        return i;
+    }
+
+    public int printConsumables(){
+        int i = 0;
+
+        for(Item item : items){
+            if(item instanceof Medicine){
+                i++;
                 System.out.println(i + ". " + item.getName() + " moc: " + item.getPower());
             }
-            i++;
         }
+
+        return i;
     }
 
     public void addItem(Item item){
-        System.out.println("Otrzymujesz nowy przedmiot: " + item.getName() + "o mocy: " + item.getPower());
+        System.out.println("Otrzymujesz nowy przedmiot: " + item.getName() + " o mocy: " + item.getPower());
 
         if(freeSlots > 0)items.add(item);
         else{
-            System.out.println("Ekwipunek pełny, wyrzuć jakiś przedmiot");
+            System.out.println("Ekwipunek pelny, wyrzuc jakis przedmiot");
             printInventory();
             System.out.println("0. " + item.getName());
 
@@ -57,7 +71,7 @@ public class Inventory {
 
     public boolean removeItem(int index){
         if(index > items.size()-1 || index < 0){
-            System.out.println("Nieprawidłowy Index");
+            System.out.println("Nieprawidlowy Index");
             return false;
         }
         items.remove(index);

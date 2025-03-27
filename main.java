@@ -21,8 +21,5 @@ public class main {
             }
         
         }while(true);
-
-        s.close();
-        game.randomEvent();
     }
 }

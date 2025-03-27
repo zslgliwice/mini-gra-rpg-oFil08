@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Player extends Entity{
         super("Gracz", 100, 5);
         this.inventory = new Inventory();
         this.gold = 10;
-        this.armor = new Armor("Potargane Łachmany", 0);
+        this.armor = new Armor("Potargane Lachmany", 0);
         this.weapon = new Weapon("Patyk", 0);
         this.lvl = 1;
         this.xp = 0;
@@ -27,6 +28,18 @@ public class Player extends Entity{
 
     public void printStats(){
         System.out.println("Twoje statystyki: lvl: " + lvl + " | HP = " + hp + " | atak = " + attackPower);
+    }
+
+    public void printXpBar(){
+        String xpBar = "lvl " + this.lvl + " [";
+        int xpNeededToLvlup =  100 + 20 * (lvl - 1);
+        int numOfxpLines = (this.xp*50)/xpNeededToLvlup;
+
+        xpBar += String.join("", Collections.nCopies(numOfxpLines, "|"));
+        xpBar += String.join("", Collections.nCopies(50-numOfxpLines, " "));
+        xpBar += "] lvl " + (this.lvl+1);
+
+        System.out.println(xpBar);
     }
 
     public void removeHp(int hpToRemove){
@@ -65,7 +78,7 @@ public class Player extends Entity{
     }
 
     public boolean equipItem(int index){
-        if(!(index > inventory.getSize()-1)|| !(index < 0)){
+        if(index > inventory.getSize() || index < 0){
             System.out.println("Nieprawidlowy Index");
             return false;
         }
@@ -93,6 +106,7 @@ public class Player extends Entity{
             return true;
         }
 
+        System.out.println("Nieprawidlowy Przedmiot");
         return false;
     }
 
@@ -124,6 +138,8 @@ public class Player extends Entity{
             lvl++;
             levelUp();
         }
+
+        printXpBar();
     }
 
     public void levelUp(){
@@ -135,7 +151,6 @@ public class Player extends Entity{
             if(choice != null) System.out.println("Nieprawidlowy Index!");
             choice = s.nextInt();
         }while(choice > 0 && choice <= 3);
-        s.close();
 
         switch (choice) {
             case 1:
@@ -167,7 +182,7 @@ public class Player extends Entity{
         addXp();
         
         int goldReward = (int)((r.nextInt(6)+10) * goldMultiplier);
-        System.out.println("Znaleziono " + goldReward + " złota!");
+        System.out.println("Znaleziono " + goldReward + " zlota!");
         gold += goldReward;
     }
 }
