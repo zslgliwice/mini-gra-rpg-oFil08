@@ -1,7 +1,7 @@
-# Dodatkowe rzeczy kt˘re zrobiem:
-- skalowanie poziomu trudnoci i otrzymywanych nagr˘d z czasem
+# Dodatkowe rzeczy które zrobiłem:
+- skalowanie poziomu trudności i otrzymywanych nagród z czasem
 - system ekwipunku
-- losowanie nazwy potwor˘w
+- losowanie nazwy potworów
 - rozne poziomy trudnosci
 - system expa
 - zdarzenie sklepu
