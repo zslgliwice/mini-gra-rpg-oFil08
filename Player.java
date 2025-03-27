@@ -158,18 +158,18 @@ public class Player extends Entity{
         do{
             if(choice != null) System.out.println("Nieprawidlowy Index!");
             choice = s.nextInt();
-        }while(choice > 0 && choice <= 3);
+        }while(choice < 0 && choice >= 3);
 
         switch (choice) {
             case 1:
                 System.out.println("Zwiekszono HP!");
-                hp += 5;
+                maxHp += 5;
                 printStats();
                 break;
             
             case 2:
                 System.out.println("Zwiekszono atak!");
-                hp += 2;
+                attackPower += 2;
                 printStats();
                 break;
 

@@ -40,6 +40,17 @@ public class Game {
 
     public void betweenEvents(){
         System.out.println("\n[==========================================================================]\n");
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
+        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
 
         while(true){
             System.out.println("Co chcesz zrobic?\n1. Idz dalej\n2. Zobacz statystyki\n3. Zobacz ekwipunek\n4. Zobacz portfel");
@@ -68,6 +79,7 @@ public class Game {
                     }
                     else if(choice == 3){
                             System.out.println("Ktory?");
+                            System.out.println("Wyrzucono przedmiot");
                             player.inventory.removeItem(getUserInput(1, player.inventory.getSize())-1);
                     }
                 }
@@ -113,6 +125,7 @@ public class Game {
     }
 
     public void fight() {
+        player.printStats();
         enemy = createRandomEnemy();
         System.out.println("Losowe wydarzenie: Spotkales przeciwnika: " + enemy.getName() + "!");
         enemy.printStats();

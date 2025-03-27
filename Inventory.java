@@ -5,11 +5,9 @@ import items.*;
 
 public class Inventory {
     private ArrayList<Item> items;
-    private int freeSlots;
 
     public Inventory() {
         items = new ArrayList<>();
-        this.freeSlots = 10;
     }
 
     public void printInventory(){
@@ -50,19 +48,19 @@ public class Inventory {
     public void addItem(Item item){
         System.out.println("Otrzymujesz nowy przedmiot: " + item.getName() + " o mocy: " + item.getPower());
 
-        if(freeSlots > 0)items.add(item);
+        if(getSize() < 10)items.add(item);
         else{
             System.out.println("Ekwipunek pelny, wyrzuc jakis przedmiot");
-            printInventory();
             System.out.println("0. " + item.getName());
+            printInventory();
 
             Scanner s = new Scanner(System.in);
             int index;
             do{
                 index = s.nextInt()-1;   
-            }while(!removeItem(index) || index != -1);
-            s.close();
+            }while(!removeItem(index) && index != -1);
 
+            System.out.println("Wyrzucono przedmiot");
             if(index != -1) items.add(item);
         }
 
@@ -73,7 +71,7 @@ public class Inventory {
             System.out.println("Nieprawidlowy Index");
             return false;
         }
-        System.out.println("Wyrzucono przedmiot");
+
         items.remove(index);
         return true;
     }
