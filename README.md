@@ -1,8 +1,7 @@
-# Dodatkowe rzeczy kt¢re zrobiˆem:
-- skalowanie poziomu trudno˜ci i otrzymywanych nagr¢d z czasem
+# Dodatkowe rzeczy ktË˜re zrobiÂˆem:
+- skalowanie poziomu trudnoÂ˜ci i otrzymywanych nagrË˜d z czasem
 - system ekwipunku
-- losowanie nazwy potwor¢w
+- losowanie nazwy potworË˜w
 - rozne poziomy trudnosci
 - system expa
 - zdarzenie sklepu
-- 
