@@ -6,13 +6,13 @@ import items.*;
 
 public class Player extends Entity{
 
-    Inventory inventory;
-    int gold;
-    Weapon weapon;
-    Armor armor;
-    int lvl;
-    int xp;
-    float goldMultiplier;
+    public Inventory inventory;
+    private Weapon weapon;
+    private int gold;
+    private Armor armor;
+    private int lvl;
+    private int xp;
+    private float goldMultiplier;
 
 
     public Player() {
@@ -26,8 +26,16 @@ public class Player extends Entity{
         this.goldMultiplier = 1;
     }
 
+    public int getGold(){
+        return gold;
+    }
+
+    public void removeGold(int goldToRemove){
+        gold -= goldToRemove;
+    }
+
     public void printStats(){
-        System.out.println("Twoje statystyki: lvl: " + lvl + " | HP = " + hp + " | atak = " + attackPower);
+        System.out.println("Twoje statystyki: lvl: " + lvl + " | HP = " + hp + "/" + maxHp + " | atak = " + attackPower);
     }
 
     public void printXpBar(){
@@ -68,7 +76,7 @@ public class Player extends Entity{
     
     public void printWorn(){
         System.out.println("Zbroja: " + this.armor.getName() + " moc: " + this.armor.getPower());
-        System.out.println("Bron: " + this.armor.getName() + " moc: " + this.armor.getPower());
+        System.out.println("Bron: " + this.weapon.getName() + " moc: " + this.weapon.getPower());
     }
     
     public void printInventory(){

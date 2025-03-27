@@ -26,7 +26,7 @@ public class Entity {
     }
 
     public void printStats(){
-        System.out.println(name + ": HP = " + hp + " | atak = " + attackPower);
+        System.out.println(name + ": HP = " + hp + "/" + maxHp + " | atak = " + attackPower);
     }
 
     public void removeHp(int hpToRemove){

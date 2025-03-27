@@ -4,8 +4,8 @@ import java.util.Scanner;
 import items.*;
 
 public class Inventory {
-    ArrayList<Item> items;
-    int freeSlots;
+    private ArrayList<Item> items;
+    private int freeSlots;
 
     public Inventory() {
         items = new ArrayList<>();
@@ -63,7 +63,6 @@ public class Inventory {
             }while(!removeItem(index) || index != -1);
             s.close();
 
-            System.out.println("Wyrzucono przedmiot");
             if(index != -1) items.add(item);
         }
 
@@ -74,6 +73,7 @@ public class Inventory {
             System.out.println("Nieprawidlowy Index");
             return false;
         }
+        System.out.println("Wyrzucono przedmiot");
         items.remove(index);
         return true;
     }

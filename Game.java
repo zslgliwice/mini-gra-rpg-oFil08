@@ -39,9 +39,11 @@ public class Game {
     }
 
     public void betweenEvents(){
+        System.out.println("\n[==========================================================================]\n");
+
         while(true){
             System.out.println("Co chcesz zrobic?\n1. Idz dalej\n2. Zobacz statystyki\n3. Zobacz ekwipunek\n4. Zobacz portfel");
-            int choice = getUserInput(1, 3);
+            int choice = getUserInput(1, 4);
 
             if(choice == 1){
                 break;
@@ -51,15 +53,29 @@ public class Game {
                 player.printXpBar();
             }
             else if(choice == 3){
+                player.printWorn();
                 player.inventory.printInventory(true);
-                System.out.println("Zalozyc jakis item?\n1. Tak\n2. Nie");
-                if(getUserInput(1, 2) == 1){
-                    System.out.println("Ktory?");
-                    player.equipItem(getUserInput(1, player.inventory.getSize())-1);
+                if(player.inventory.getSize() > 0){
+                    System.out.println("Co chcesz zrobic?\n1. Zaloz przedmiot\n2. Uzyj przedmiot\n3. Wyrzuc przedmiot\n4. Nic");
+                    choice = getUserInput(1, 4);
+                    if(choice == 1){
+                        System.out.println("Ktory?");
+                        player.equipItem(getUserInput(1, player.inventory.getSize())-1);
+                    }
+                    else if(choice == 2){
+                        System.out.println("Ktory?");
+                        player.useConsumable(getUserInput(1, player.inventory.getSize())-1);
+                    }
+                    else if(choice == 3){
+                            System.out.println("Ktory?");
+                            player.inventory.removeItem(getUserInput(1, player.inventory.getSize())-1);
+                    }
                 }
             }
             else player.printWallet();
         }
+
+        System.out.println("\n[==========================================================================]\n");
 
         randomEvent();
     }
@@ -77,14 +93,14 @@ public class Game {
 
     public Entity createRandomEnemy() {
         String enemyName = monsterNames.get(random.nextInt(monsterNames.size()));
-        float multiplier = difficultyMultiplier * (1 + (float) liczbaTur / 10);
+        float multiplier = difficultyMultiplier * (1 + (float) liczbaTur / 50);
         int enemyHp = (int) ((random.nextInt(31) + 20) * multiplier);
         int enemyAttackPower = (int) ((random.nextInt(11) + 5) * multiplier);
         return new Entity(enemyName.replace("?", ""), enemyHp, enemyAttackPower);
     }
 
     public Item createRandomItem() {
-        int itemPower = (int) ((random.nextInt(6) + 5) * (1 + (float) liczbaTur / 10));
+        int itemPower = (int) ((random.nextInt(6) + 5) * (1 + (float) liczbaTur / 50));
 
         switch (random.nextInt(3)) {
             case 0:
@@ -92,7 +108,7 @@ public class Game {
             case 1:
                 return new Weapon(weaponNames.get(random.nextInt(weaponNames.size())).replace("?", ""), itemPower);
             default:
-                return new Medicine(medicineNames.get(random.nextInt(medicineNames.size())).replace("?", ""), itemPower);
+                return new Medicine(medicineNames.get(random.nextInt(medicineNames.size())).replace("?", ""), itemPower*2);
         }
     }
 
@@ -131,7 +147,7 @@ public class Game {
                     System.out.println("Udalo sie uciec!");
                     break;
                 } else {
-                    System.out.println("Nie udaˆo sie uciec...");
+                    System.out.println("Nie udalo sie uciec...");
                 }
             }
             
@@ -151,17 +167,23 @@ public class Game {
     }
 
     public void camp() {
-        System.out.println("Losowe wydarzenie: Znaleziono dobre miejsce na oboz!\nUleczyc 25% HP za 10 zlota?\n1. Tak\n2. Nie");
+        System.out.println("Losowe wydarzenie: Znaleziono dobre miejsce na oboz!\nUleczyc 25% HP za 10 zlota?\nTwoje zloto: " + player.getGold() + "\nTwoje hp: " + player.getHp() +"/" + player.getMaxHp()+ "\n1. Tak\n2. Nie");
         if (getUserInput(1, 2) == 1) {
-            player.addHp(player.getMaxHp() / 4);
-            System.out.println("Odpoczales i odzyskales troche sil.");
-            player.printStats();
+            if(player.getGold() >= 10){
+                player.addHp(player.getMaxHp() / 4);
+                player.removeGold(10);
+                System.out.println("Odpoczales i odzyskales troche sil.");
+                player.printStats();
+            }
+            else{
+                System.out.println("Niewystarczaj¥co zˆota");
+            }
         }
         betweenEvents();
     }
 
     public void shop() {
-        System.out.println("Losowe wydarzenie: Znaleziono podrozujacego handlarza!");
+        System.out.println("Losowe wydarzenie: Znaleziono podrozujacego handlarza! Ilosc zlota: "+ player.getGold());
         
         Item[] items = {createRandomItem(), createRandomItem(), createRandomItem()};
         int[] prices = {random.nextInt(26) + 15, random.nextInt(26) + 15, random.nextInt(26) + 15};
@@ -174,9 +196,9 @@ public class Game {
         while (true) {
             int choice = getUserInput(1, 4);
 
-            if (choice != 4 && player.gold >= prices[choice - 1]) {
+            if (choice != 4 && player.getGold() >= prices[choice - 1]) {
                 System.out.println("Kupiono " + items[choice - 1].getName());
-                player.gold -= prices[choice - 1];
+                player.removeGold(prices[choice - 1]);
                 player.inventory.addItem(items[choice - 1]);
                 break;
             } else if (choice != 4) {
