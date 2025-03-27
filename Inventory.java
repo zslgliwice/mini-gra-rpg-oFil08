@@ -12,7 +12,7 @@ public class Inventory {
 
     public void printInventory(){
         for(int i = 0 ; i < items.size() ; i++){
-            System.out.println((i+1) + ". " + items.get(i).getName());
+            System.out.println((i+1) + ". " + items.get(i).getName() + " moc: " + items.get(i).getPower());
         }
     }
 
