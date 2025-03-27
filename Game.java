@@ -40,17 +40,6 @@ public class Game {
 
     public void betweenEvents(){
         System.out.println("\n[==========================================================================]\n");
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
-        player.inventory.addItem(new Armor("Potargane Lachmany", 0));
 
         while(true){
             System.out.println("Co chcesz zrobic?\n1. Idz dalej\n2. Zobacz statystyki\n3. Zobacz ekwipunek\n4. Zobacz portfel");
