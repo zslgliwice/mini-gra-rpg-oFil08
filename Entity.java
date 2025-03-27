@@ -32,11 +32,15 @@ public class Entity {
     public void removeHp(int hpToRemove){
         this.hp -= hpToRemove;
 
+        if(this.hp > this.maxHp) this.hp = this.maxHp;
+
         System.out.println("Zadales " + hpToRemove + " obrazen!");
     }
 
     public void addHp(int hpToAdd){
         this.hp += hpToAdd;
+
+        if(this.hp > this.maxHp) this.hp = this.maxHp;
 
         System.out.println(this.name + "uleczyl " + hpToAdd + " obrazen!");
     }

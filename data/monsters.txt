@@ -1,4 +1,4 @@
-Wilk
+ï»¿Wilk
 Goblin
 Zboj
 Upior
@@ -21,7 +21,7 @@ Ropusznik
 Zmora
 Strzyga
 Widmo
-Wa¾
+WaÂ¾
 Bagiennik
 Gnoll
 Mantykora
@@ -36,10 +36,10 @@ Zjawa
 Wiedzma
 Czart
 Ent
-½ywiolak Ognia
-½ywiolak Wody
-½ywiolak Ziemi
-½ywiolak Powietrza
+Zywiolak Ognia
+Zywiolak Wody
+Zywiolak Ziemi
+Zywiolak Powietrza
 Mokradlowy Potwor
 Plugawiec
 Gryf

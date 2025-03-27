@@ -1,4 +1,4 @@
-Pancerz Cienia
+ï»¿Pancerz Cienia
 Zbroja Smoka
 Napiersnik Wladcy
 Karwasze Wojownika
@@ -27,14 +27,14 @@ Plaszcz Cierni
 Pancerz Wladcy Burzy
 Zbroja Czarnej Rozy
 Napiersnik Krwawego Ksiecia
-Karwasze Zakle†
+Karwasze Zaklec
 Helm Wedrowca
 Nagolenniki Losu
 Napiersnik Wilczej Strazy
 Zbroja Niesmiertelnych
 Rekawice Smoczej Potegi
 Peleryna Ognia
-Helm Sloäca
+Helm Slonca
 Buty Prawdy
 Plaszcz Demonow
 Pancerz Gwiazd
@@ -43,7 +43,7 @@ Napiersnik Spustoszenia
 Karwasze Stalowe
 Helm Przeznaczenia
 Nagolenniki Wojenne
-Napiersnik Mro«nej Czarodziejki
+Napiersnik MroÂ«nej Czarodziejki
 Zbroja Chaosu
 Rekawice Zwiadowcy
 Peleryna Mgly
@@ -53,7 +53,7 @@ Plaszcz Duszy
 Pancerz Wojennego Krola
 Zbroja Srebrnego Feniksa
 Napiersnik Koszmarow
-Karwasze Wygnaäca
+Karwasze Wygnanca
 Helm Wedrownej Duszy
 Nagolenniki Widmowe
 Napiersnik Przodkow
@@ -79,7 +79,7 @@ Plaszcz Szeptow
 Pancerz Zywiolow
 Zbroja Elfiej Krolowej
 Napiersnik Blogoslawionych
-Karwasze Nieskoäczonosci
+Karwasze Nieskonczonosci
 Helm Proroka
 Nagolenniki Ostatniej Bitwy
 Napiersnik swietego Rycerza
@@ -87,6 +87,6 @@ Zbroja Krwawego Ostrza
 Rekawice Kruka
 Peleryna Czarnoksieznika
 Helm Iluminacji
-Buty Wygnaäca
+Buty Wygnanca
 Plaszcz Nieuchronnosci
 Pancerz Zatracenia

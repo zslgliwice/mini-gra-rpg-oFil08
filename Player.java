@@ -38,6 +38,8 @@ public class Player extends Entity{
     public void addHp(int hpToAdd){
         this.hp += hpToAdd;
 
+        if(this.hp > this.maxHp) this.hp = this.maxHp;
+
         System.out.println("Uleczono " + hpToAdd + " obrazen!");
     }
 
@@ -94,10 +96,10 @@ public class Player extends Entity{
         return false;
     }
 
-    public void useConsumable(int index){
-        if(!(index > inventory.getSize()-1)|| !(index < 0)){
+    public boolean useConsumable(int index){
+        if((index > inventory.getSize()-1) && (index < 0)){
             System.out.println("Nieprawidlowy Index");
-            return;
+            return false;
         }
 
         Item pom = inventory.getItem(index);
@@ -106,10 +108,10 @@ public class Player extends Entity{
             System.out.println("Uzyto przedmiot: " + pom.getName());
             printStats();
             inventory.removeItem(index);
-            return;
+            return true;
         }
 
-        return;
+        return false;
     }
 
     public void addXp(){
@@ -157,5 +159,15 @@ public class Player extends Entity{
                 break;
 
             }
+    }
+
+    public void battleRewards(){
+        Random r = new Random();
+
+        addXp();
+        
+        int goldReward = (int)((r.nextInt(6)+10) * goldMultiplier);
+        System.out.println("Znaleziono " + goldReward + " złota!");
+        gold += goldReward;
     }
 }
